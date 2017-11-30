@@ -1,0 +1,16 @@
+version: '2.1'
+services:
+  mysqldb:
+    image: mysql:latest
+    mem_limit: 1073741824
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-hmysqldb", "-uroot", "-ppassword", "--silent"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+    ports:
+      - "3306:3306/tcp"
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: migration
