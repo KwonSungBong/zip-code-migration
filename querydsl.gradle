@@ -1,0 +1,40 @@
+configurations {
+    querydslapt
+}
+
+sourceSets {
+    querydsl.java.srcDirs = ['src/main/querydsl']
+}
+
+task generateQueryDSL(type: JavaCompile, group: 'build', description: 'Generates the QueryDSL query types') {
+    source = sourceSets.main.java
+    classpath = configurations.compile + configurations.querydslapt
+    options.compilerArgs = [
+            '-proc:only',
+            '-processor', 'com.querydsl.apt.jpa.JPAAnnotationProcessor'
+    ]
+    destinationDir = sourceSets.querydsl.java.srcDirs.iterator().next()
+
+    dependencyCacheDir = compileJava.dependencyCacheDir
+}
+
+idea {
+    module {
+        sourceDirs += file('src/main/querydsl')
+    }
+}
+
+compileJava {
+    dependsOn generateQueryDSL
+    source generateQueryDSL.destinationDir
+}
+
+clean {
+    delete sourceSets.querydsl.java.srcDirs
+}
+
+dependencies {
+    compile('org.projectlombok:lombok')
+    compile "com.querydsl:querydsl-jpa:$QUERY_DSL_VERSION"
+    compile "com.querydsl:querydsl-apt:$QUERY_DSL_VERSION"
+}

@@ -6,13 +6,13 @@ spring:
   profiles.active: local
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: none
     generate-ddl: false
     show-sql: false
     database-platform: org.hibernate.dialect.MySQLDialect
 
   datasource:
-    url: jdbc:mysql://localhost:3306/migration?characterEncoding=utf8&useUnicode=true&autoReconnect=true&useSSL=false&zeroDateTimeBehavior=convertToNull
+    url: jdbc:mysql://www.bookstorage.kr:3308/testtest?characterEncoding=utf8&useUnicode=true&autoReconnect=true&useSSL=false&zeroDateTimeBehavior=convertToNull
     username: root
     password: "password"
     driver-class-name: com.mysql.jdbc.Driver

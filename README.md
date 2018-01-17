@@ -18,3 +18,10 @@ http://localhost:9999/test/index
 - http://kwanseob.blogspot.kr/2013/02/zip.html
 - http://linuxmint.kr/tip/9119
 
+unzip -O cp949 
+
+------------------------------------------------------------------
+
+1. 신주소, 구주소 테이블
+
+

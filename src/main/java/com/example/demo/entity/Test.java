@@ -5,15 +5,12 @@ import lombok.Data;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-/**
- * Created by whilemouse on 17. 11. 16.
- */
 @Entity
 @Data
-public class Target {
+public class Test {
 
     @Id
-    private Long id;
-//    private Region targetRegion;
+    private Integer id;
+    private String name;
 
 }
