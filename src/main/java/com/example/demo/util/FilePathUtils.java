@@ -15,29 +15,30 @@ import java.util.List;
 @Slf4j
 public class FilePathUtils {
 
-    public static final String REGION_WORK_FILE_NAME = "region_temp.txt";
-    public static final String ZIP_CODE_MAPPING_WORK_FILE_NAME = "zip_code_mapping_temp.txt";
+    public static final Path DEFAULT_PATH = Paths.get("data");
 
-    public static String BASE_WORK_DIRECTORY_NAME = "works";
-    public static String BASE_LOG_DIRECTORY_NAME = "logs";
+    public static final String REGION_WORK_FILE_NAME = "region_work_file.txt";
+    public static final String ZIP_CODE_MAPPING_WORK_FILE_NAME = "zip_code_mapping_work_file.txt";
+
+    public static final String BASE_WORK_DIRECTORY_NAME = "works";
+    public static final String BASE_LOG_DIRECTORY_NAME = "logs";
+    public static final String REGION_NEW_AREA_RAW_DIRECTORY_NAME = "new_area";
+    public static final String REGION_OLD_AREA_RAW_DIRECTORY_NAME = "old_area";
+
+    public static String getRawFilePath(String fileName) throws IOException {
+        return getFilePath(DEFAULT_PATH, fileName);
+    }
 
     public static String getWorkFilePath(String fileName) throws IOException {
-        return FilePathUtils.createWorkDirectory() + fileName;
+        return getFilePath(DEFAULT_PATH, FilePathUtils.createWorkDirectory() + fileName);
     }
 
     public static String getLogFilePath(String fileName) throws IOException {
-        return FilePathUtils.createDateLogDirectory() + fileName;
+        return getFilePath(DEFAULT_PATH, FilePathUtils.createDateLogDirectory() + fileName);
     }
 
     public static String getFilePath(Path basePath, String fileName) throws NoSuchFileException {
         Path filePath = Paths.get(basePath.toString(), fileName);
-
-        if(!Files.exists(filePath)){
-            throw new NoSuchFileException("file is not found. filePath="+filePath);
-        }
-
-        log.debug("filePath={}, basePath={}", filePath, basePath);
-
         return filePath.toString();
     }
 

@@ -1,9 +1,10 @@
-package com.example.demo.service;
+package com.example.demo.component;
 
 import com.example.demo.util.FilePathUtils;
 import com.google.common.collect.Lists;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.FileUtils;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -21,7 +22,7 @@ import java.util.function.Consumer;
  * Created by whilemouse on 18. 1. 11.
  */
 @Slf4j
-@Service
+@Component
 public class RegionRawTableMaker {
 
     private static final String[] dbFileExtensions = {"txt"};

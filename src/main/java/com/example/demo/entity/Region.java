@@ -1,18 +1,20 @@
 package com.example.demo.entity;
 
 import com.example.demo.dto.AreaRaw;
+import com.example.demo.dto.RegionRaw;
 import lombok.Data;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.util.Arrays;
 
-//@Entity
+@Entity
 @Data
 public class Region {
 
     public static final String SEPARATOR = " ";
 
-//    @Id
+    @Id
     private Integer id;
     private Integer parent;
     private String name;
@@ -40,6 +42,28 @@ public class Region {
         this.depth2Name = areaRaw.getArea1();
         this.depth3Name = areaRaw.getArea2();
         this.depth4Name = areaRaw.getArea3();
+    }
+
+    public Region(String line) {
+        String[] values = line.split("\\|");
+
+        id = values[0].equals("null") ? null : Integer.valueOf(values[0]);
+        parent = values[1].equals("null") ? null : Integer.valueOf(values[1]);
+        name = values[2].equals("null") ? null : values[2];
+        zipCode = values[3].equals("null") ? null : values[3];
+        description = values[4].equals("null") ? null : values[4];
+        enabled  = values[5].equals("null") ? null : values[5].equals("true");
+        depth = values[6].equals("null") ? null : Integer.valueOf(values[6]);
+        depth1 = values[7].equals("null") ? null : Integer.valueOf(values[7]);
+        depth2 = values[8].equals("null") ? null : Integer.valueOf(values[8]);
+        depth3 = values[9].equals("null") ? null : Integer.valueOf(values[9]);
+        depth4 = values[10].equals("null") ? null : Integer.valueOf(values[10]);
+        depth5 = values[11].equals("null") ? null : Integer.valueOf(values[11]);
+        depth1Name = values[12].equals("null") ? null : values[12];
+        depth2Name = values[13].equals("null") ? null : values[13];
+        depth3Name = values[14].equals("null") ? null : values[14];
+        depth4Name = values[15].equals("null") ? null : values[15];
+        depth5Name = values[16].equals("null") ? null : values[16];
     }
 
     public String getFullName() {

@@ -24,4 +24,8 @@ unzip -O cp949
 
 1. 신주소, 구주소 테이블
 
+------------------------------------------------------------------
 
+show variables like 'char%';
+
+ALTER DATABASE testtest CHARACTER SET utf8;

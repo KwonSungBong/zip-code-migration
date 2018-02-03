@@ -1,7 +1,5 @@
 package com.example.demo.component;
 
-import com.example.demo.service.AreaTableMaker;
-import com.example.demo.service.RegionRawTableMaker;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -30,20 +30,4 @@ public abstract class AreaRaw {
         return this.area0 + this.area1 + this.area2 + this.area3 + this.uniqueRoadName;
     }
 
-//    public void setArea0(String area0) {
-//        this.area0 = area0.replaceAll("\\p{Z}","");
-//    }
-//
-//    public void setArea1(String area1) {
-//        this.area1 = area1.replaceAll("\\p{Z}","");
-//    }
-//
-//    public void setArea2(String area2) {
-//        this.area2 = area2.replaceAll("\\p{Z}","");
-//    }
-//
-//    public void setArea3(String area3) {
-//        this.area3 = area3.replaceAll("\\p{Z}","");
-//    }
-
 }

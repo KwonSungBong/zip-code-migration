@@ -1,8 +1,8 @@
 package com.example.demo.dto;
 
-import lombok.Data;
+import lombok.ToString;
 
-@Data
+@ToString
 public class NewAreaRaw extends AreaRaw {
 
     public NewAreaRaw() {}
@@ -45,14 +45,14 @@ public class NewAreaRaw extends AreaRaw {
 
         setUniqueRoadName(values[8]); // 도로명
 
-        // 건물번호본번 + 건물번호부번
-        if (values[11] != null) {
-            String buildingName = values[11];
-            if (values[12] != null) {
-                buildingName += "-" + values[12];
-            }
-            setBuildingName(buildingName);
-        }
+//        // 건물번호본번 + 건물번호부번
+//        if (values[11] != null) {
+//            String buildingName = values[11];
+//            if (values[12] != null) {
+//                buildingName += "-" + values[12];
+//            }
+//            setBuildingName(buildingName);
+//        }
 
     }
 

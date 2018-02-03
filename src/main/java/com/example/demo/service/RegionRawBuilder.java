@@ -82,7 +82,7 @@ public class RegionRawBuilder {
             region.setDepth1(region.getId());
             region.setDepth1Name(region.getName());
 
-            regionRawList.add(regionRaw);
+            regionList.add(region);
             depth1Map.put(region.getFullName(), region);
         });
 

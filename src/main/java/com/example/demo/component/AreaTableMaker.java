@@ -1,11 +1,14 @@
-package com.example.demo.service;
+package com.example.demo.component;
 
-import com.example.demo.dto.*;
+import com.example.demo.dto.AreaRaw;
+import com.example.demo.dto.NewAreaRaw;
+import com.example.demo.dto.OldAreaRaw;
+import com.example.demo.dto.RangeAreaRaw;
 import com.example.demo.util.FilePathUtils;
 import com.google.common.collect.Lists;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.FileUtils;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
@@ -22,7 +25,7 @@ import java.util.function.Consumer;
  * Created by whilemouse on 18. 1. 11.
  */
 @Slf4j
-@Service
+@Component
 public class AreaTableMaker {
 
     private static final String[] dbFileExtensions = {"txt"};
